@@ -1,0 +1,84 @@
+﻿@model IList<ProductOverviewModel>
+@using Nop.Web.Models.Catalog;
+
+@{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+
+    var tabs = new System.Collections.ArrayList(); 
+}
+
+<div class="new">
+    <div class="new-product-title"><span class="textspan">@T("Products.NewProducts")</span></div> 
+    <div class="novelty"></div>
+
+    <div id="novelty" class="carousel slide">
+
+        <div class="carousel-inner">
+            @for (j = 0; j < 3; j++)
+            {
+                if (j == 0)
+                {
+                <div class="item active">
+                    <div class="newTable">
+
+                        @foreach (var tab in @Model)
+                        {
+                            if (i < 3 && !tabs.Contains(tab) && k < 9)
+                            {
+                                   
+                            <div class="newProduct">
+                                <a href="@Url.RouteUrl("Product", new { SeName = tab.SeName })">
+                                    <img src="@tab.DefaultPictureModel.ImageUrl" class="newImage" alt="@tab.DefaultPictureModel.AlternateText" ><div class="newTitle">@tab.Name</div>
+                                </a>
+                            </div>   
+                                i++;
+                                k++;
+                                tabs.Add(tab);
+                            }
+                        }
+
+                    </div>
+                </div>
+                }
+
+                else
+                {
+                    i = 0;
+                <div class="item">
+                    <div class="newTable">
+                        @foreach (var tab in @Model)
+                        {
+
+                            if (i < 3 && !tabs.Contains(tab) && k <9)
+                            {
+       
+                            <div class="newProduct">
+                                <a href="@Url.RouteUrl("Product", new { SeName = tab.SeName })">
+                                    <img src="@tab.DefaultPictureModel.FullSizeImageUrl" class="newImage" alt="@tab.DefaultPictureModel.AlternateText"><div class="newTitle">@tab.Name</div>
+                                </a>
+                            </div>    
+                                i++;
+                                k++;
+                                tabs.Add(tab);
+                            }
+                        }
+                    </div>
+                </div> 
+                }
+            }
+        </div>
+        <ol class="carousel-indicators">
+            <li data-target="#novelty" data-slide-to="0" class="active"></li>
+            <li data-target="#novelty" data-slide-to="1"></li>
+            <li data-target="#novelty" data-slide-to="2"></li>
+        </ol>
+
+        <a class="left carousel-control new-control" href="#novelty" data-slide="prev">
+            <img src="/Themes/genataShop/Content/images/left.png" alt="" title="previous"></a>
+        <a class="right carousel-control new-control" href="#novelty" data-slide="next">
+            <img src="/Themes/genataShop/Content/images/right.png" alt="" title="next"></a>
+    </div>
+</div>
+

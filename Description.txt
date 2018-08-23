@@ -1,0 +1,8 @@
+﻿Group: 1T-Partner
+FriendlyName:  Nop Anywhere Product Slider
+SystemName: Widgets.NewProduct
+Version: 1.00
+SupportedVersions: 3.40
+Author: IT Partner team
+DisplayOrder: 1
+FileName: Nop.Plugin.Widgets.NewProduct.dll

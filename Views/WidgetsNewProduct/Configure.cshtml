@@ -1,0 +1,40 @@
+﻿@model Nop.Plugin.Widgets.NewProduct.Models.ConfigurationModel
+@{
+    Layout = "";
+}
+@using Nop.Web.Framework
+
+@using (Html.BeginForm())
+{
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.SpecificationAttributeOptionId):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.SpecificationAttributeOptionId)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.WidgetZone):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.WidgetZone)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.UseNewProducts):
+            </td>
+            <td class="adminData">
+                @Html.CheckBoxFor(model => model.UseNewProducts)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" class="t-button" value='Submit' />
+            </td>
+        </tr>
+    </table>
+}
